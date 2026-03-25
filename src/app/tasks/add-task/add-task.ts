@@ -1,5 +1,6 @@
-import { Component, output, signal } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { TaskService } from '../../services/tasks.service';
 
 
 @Component({
@@ -10,28 +11,32 @@ import { FormsModule } from '@angular/forms';
 })
 export class AddTask {
 
-  cancel = output<void>();
-  add = output<AddTaskModel>();
+  userId = input.required<string>();
+  closeAddTaskDialog = output<void>();
   //forms related properties
   enteredTitle = signal('');
   enteredSummary = signal('');
   enteredDueDate = signal('');
 
 
+  constructor(private taskService: TaskService) { }
+
   onCancel() {
-    this.cancel.emit();
+    this.closeAddTaskDialog.emit();
   }
 
   onSubmit() {
     if (this.enteredTitle() && this.enteredSummary() && this.enteredDueDate()) {
-      this.add.emit({
+      this.taskService.addNewTask({
         title: this.enteredTitle(),
         summary: this.enteredSummary(),
         dueDate: this.enteredDueDate()
-      });
+      }, this.userId());
     } else {
       console.log('Form invalid');
     }
+
+    this.closeAddTaskDialog.emit();
   }
 
 }

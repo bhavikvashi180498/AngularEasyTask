@@ -5,8 +5,6 @@ import { Task } from './task/task';
 import { AddTask } from "./add-task/add-task";
 
 
-
-
 @Component({
   selector: 'app-tasks',
   imports: [Task, AddTask],
@@ -25,17 +23,8 @@ export class Tasks {
     return this.taskService.getUserTasks(this.user().id);
   }
 
-  onCompleteTask(id: string) {
-    this.taskService.removeTask(id);
-  }
-
   onClickAddTask() {
     this.isAddingTask = true;
-  }
-
-  onAddTask(task: AddTaskModel) {
-    this.taskService.addNewTask(task, this.user().id);
-    this.isAddingTask = false;
   }
 
 }
