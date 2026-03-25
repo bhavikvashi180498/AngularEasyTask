@@ -12,6 +12,7 @@ import { Task } from './task/task';
 export class Tasks {
 
   user = input.required<UserModel>();
+  tasks = DUMMY_TASKS;
 
 
   addTask() {
@@ -19,7 +20,11 @@ export class Tasks {
   }
 
   get selectedUserTasks() {
-    return DUMMY_TASKS.filter(task => task.userId === this.user()?.id);
+    return this.tasks.filter(task => task.userId === this.user()?.id);
+  }
+
+  onCompleteTask(id: string) {
+    this.tasks = this.tasks.filter(task => task.id != id);
   }
 
 }

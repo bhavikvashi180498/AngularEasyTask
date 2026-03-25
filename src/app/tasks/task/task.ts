@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -8,4 +8,9 @@ import { Component, input } from '@angular/core';
 })
 export class Task {
   task = input.required<TaskModel>();
+  complete = output<string>();
+
+  completeTask(){
+    this.complete.emit(this.task().id);
+  }
 }
