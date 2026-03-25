@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 export class AddTask {
 
   cancel = output<void>();
+  add = output<{ title: string, summary: string, dueDate: string }>();
   //forms related properties
   enteredTitle = signal('');
   enteredSummary = signal('');
@@ -19,6 +20,18 @@ export class AddTask {
 
   onCancel() {
     this.cancel.emit();
+  }
+
+  onSubmit() {
+    if (this.enteredTitle() && this.enteredSummary() && this.enteredDueDate()) {
+      this.add.emit({
+        title: this.enteredTitle(),
+        summary: this.enteredSummary(),
+        dueDate: this.enteredDueDate()
+      });
+    } else {
+      console.log('Form invalid');
+    }
   }
 
 }

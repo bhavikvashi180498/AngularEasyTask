@@ -28,4 +28,19 @@ export class Tasks {
     this.isAddingTask = true;
   }
 
+  onAddTask(task: { title: string, summary: string, dueDate: string }) {
+    console.log("reer");
+    let createdTask: TaskModel = {
+      id: Math.random().toString(),
+      userId: this.user().id,
+      title: task.title,
+      summary: task.summary,
+      dueDate: task.dueDate,
+    };
+
+    this.tasks.push(createdTask);
+
+    this.isAddingTask = false;
+  }
+
 }

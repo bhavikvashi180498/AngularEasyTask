@@ -1,4 +1,4 @@
-export const DUMMY_TASKS = [
+export const DUMMY_TASKS : TaskModel[] = [
     {
         id: 't1',
         userId: 'u1',
