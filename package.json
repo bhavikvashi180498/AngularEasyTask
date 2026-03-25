@@ -1,12 +1,14 @@
 {
-  "name": "myapp",
+  "name": "EasyTask",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "github-build": "ng build --configuration production --base-href 'https://bhavikvashi180498.github.io/AngularEasyTask/' --deploy-url=https://bhavikvashi180498.github.io/AngularEasyTask/",
+    "github-deploy": "npx angular-cli-ghpages --dir=/dist/myapp/browser --no-silent"
   },
   "private": true,
   "packageManager": "npm@10.9.2",
@@ -17,6 +19,7 @@
     "@angular/forms": "^21.2.0",
     "@angular/platform-browser": "^21.2.0",
     "@angular/router": "^21.2.0",
+    "angular-cli-ghpages": "^3.0.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "uuid": "^13.0.0"

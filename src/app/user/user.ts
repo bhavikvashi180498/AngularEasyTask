@@ -11,7 +11,7 @@ import { Card } from "../common/card/card";
 export class User {
   user = input.required<UserModel>();
   selectedUser = input.required<boolean>();
-  imagePath = computed(() => '/images/users/' + this.user().avatar);
+  imagePath = computed(() => 'images/users/' + this.user().avatar);
   userChanged = output<string>();
 
   changeUser() {
