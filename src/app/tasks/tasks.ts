@@ -4,6 +4,9 @@ import { DUMMY_TASKS } from '../services/tasks.service';
 import { Task } from './task/task';
 import { AddTask } from "./add-task/add-task";
 
+import { v4 as uuidv4 } from 'uuid';
+
+
 @Component({
   selector: 'app-tasks',
   imports: [Task, AddTask],
@@ -28,10 +31,10 @@ export class Tasks {
     this.isAddingTask = true;
   }
 
-  onAddTask(task: { title: string, summary: string, dueDate: string }) {
+  onAddTask(task: AddTaskModel) {
     console.log("reer");
     let createdTask: TaskModel = {
-      id: Math.random().toString(),
+      id: uuidv4(),
       userId: this.user().id,
       title: task.title,
       summary: task.summary,

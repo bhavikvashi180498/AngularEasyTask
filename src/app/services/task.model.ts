@@ -5,3 +5,10 @@ interface TaskModel {
     summary: string;
     dueDate: string
 }
+
+
+interface AddTaskModel {
+    title: string;
+    summary: string;
+    dueDate: string
+}

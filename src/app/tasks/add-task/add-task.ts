@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 export class AddTask {
 
   cancel = output<void>();
-  add = output<{ title: string, summary: string, dueDate: string }>();
+  add = output<AddTaskModel>();
   //forms related properties
   enteredTitle = signal('');
   enteredSummary = signal('');
