@@ -1,11 +1,10 @@
 import { Component, input, output, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { TaskService } from '../../services/tasks.service';
 
 
 @Component({
   selector: 'app-add-task',
-  imports: [FormsModule],
+  standalone: false,
   templateUrl: './add-task.html',
   styleUrl: './add-task.css',
 })

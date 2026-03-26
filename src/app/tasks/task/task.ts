@@ -1,11 +1,9 @@
-import { Component, input, output } from '@angular/core';
-import { Card } from '../../common/card/card';
-import { DatePipe } from '@angular/common';
+import { Component, input } from '@angular/core';
 import { TaskService } from '../../services/tasks.service';
 
 @Component({
   selector: 'app-task',
-  imports: [Card, DatePipe],
+  standalone: false,
   templateUrl: './task.html',
   styleUrl: './task.css',
 })
